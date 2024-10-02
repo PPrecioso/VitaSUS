@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Consulta - VitaSUS</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>VitaSUS</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="appointments.html">Agendar Consulta</a></li>
+                <li><a href="history.html">Histórico</a></li>
+                <li><a href="profile.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Agendar Consulta</h2>
+        <form id="appointmentForm">
+            <!-- Seleção de Especialidade -->
+            <label for="specialty">Especialidade:</label>
+            <select id="specialty" name="specialty" required>
+                <option value="" disabled selected>Selecione uma especialidade</option>
+                <option value="clinico_geral">Clínico Geral</option>
+                <option value="cardiologia">Cardiologia</option>
+                <option value="dermatologia">Dermatologia</option>
+                <option value="ginecologia">Ginecologia</option>
+                <option value="pediatria">Pediatria</option>
+            </select>
+
+            <!-- Seleção de Médico -->
+            <label for="doctor">Médico:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="" disabled selected>Selecione um médico</option>
+                <!-- Médicos serão carregados dinamicamente via API -->
+            </select>
+
+            <!-- Data e hora da consulta -->
+            <label for="date">Data da Consulta:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Horário:</label>
+            <input type="time" id="time" name="time" required>
+
+            <!-- Botão de submissão -->
+            <input type="submit" value="Agendar Consulta">
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 VitaSUS. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const specialty = document.getElementById('specialty').value;
+            const doctor = document.getElementById('doctor').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            if (specialty && doctor && date && time) {
+                // Enviar os dados do agendamento para o servidor via API
+                console.log({
+                    specialty: specialty,
+                    doctor: doctor,
+                    date: date,
+                    time: time
+                });
+
+                alert('Consulta agendada com sucesso!');
+            } else {
+                alert('Por favor, preencha todos os campos corretamente.');
+            }
+        });
+
+        // Função para popular o select de médicos dinamicamente
+        function populateDoctors() {
+            const doctors = {
+                clinico_geral: ['Dr. João Silva', 'Dra. Maria Oliveira'],
+                cardiologia: ['Dr. Carlos Souza', 'Dra. Ana Gomes'],
+                dermatologia: ['Dr. Pedro Almeida', 'Dra. Letícia Lima'],
+                ginecologia: ['Dra. Laura Ferreira', 'Dra. Paula Santos'],
+                pediatria: ['Dr. Bruno Costa', 'Dra. Isabel Rodrigues']
+            };
+
+            const specialtySelect = document.getElementById('specialty');
+            const doctorSelect = document.getElementById('doctor');
+
+            specialtySelect.addEventListener('change', function() {
+                const selectedSpecialty = this.value;
+
+                // Limpar opções anteriores de médicos
+                doctorSelect.innerHTML = '<option value="" disabled selected>Selecione um médico</option>';
+
+                // Adicionar os médicos correspondentes à especialidade selecionada
+                if (selectedSpecialty && doctors[selectedSpecialty]) {
+                    doctors[selectedSpecialty].forEach(doctor => {
+                        const option = document.createElement('option');
+                        option.value = doctor;
+                        option.textContent = doctor;
+                        doctorSelect.appendChild(option);
+                    });
+                }
+            });
+        }
+
+        // Chamar a função para popular os médicos quando a página carregar
+        window.onload = populateDoctors;
+    </script>
+</body>
+</html>

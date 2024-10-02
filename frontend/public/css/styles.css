@@ -1,0 +1,188 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f9f4; /* Fundo verde claro */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #00796b; /* Verde escuro */
+    color: #e0f7fa; /* Azul claro para o texto */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Navegação */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #e0f7fa; /* Azul claro */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Área principal */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Formulários */
+form {
+    background-color: #ffffff; /* Fundo branco */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #b2dfdb; /* Verde suave */
+    border-radius: 5px;
+}
+
+form input[type="submit"], form button {
+    background-color: #004d40; /* Verde escuro */
+    color: #e0f7fa; /* Azul claro */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form input[type="submit"]:hover, form button:hover {
+    background-color: #00796b; /* Verde mais claro ao passar o mouse */
+}
+
+/* Listas */
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+ul li {
+    background-color: #e0f7fa; /* Fundo azul claro */
+    border: 1px solid #b2dfdb; /* Borda verde suave */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #00796b; /* Verde escuro */
+    color: #e0f7fa; /* Azul claro */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Títulos */
+h2, h3 {
+    color: #004d40; /* Verde escuro */
+}
+
+p {
+    font-size: 1.2em;
+    color: #004d40; /* Texto em verde escuro */
+}
+
+header {
+    background-color: #e0f7fa; /* Azul claro */
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #00796b; /* Verde escuro */
+}
+
+footer {
+    background-color: #e0f7fa; /* Azul claro */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.btn {
+    background-color: #00796b; /* Verde escuro */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #004d40; /* Verde escuro mais forte */
+}
+
+.navbar {
+    background-color: #4CAF50; /* Verde claro */
+    padding: 1rem;
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove marcadores */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Exibe os itens em linha */
+}
+
+.navbar li {
+    margin-right: 20px; /* Espaçamento entre os itens */
+}
+
+.navbar a {
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.navbar a:hover {
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+}

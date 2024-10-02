@@ -1,0 +1,13 @@
+const schedule = require('node-schedule');
+const { sendReminder } = require('../services/notificationService');
+
+const scheduleNotifications = (appointmentTime, user) => {
+  const reminderTime = new Date(appointmentTime);
+  reminderTime.setHours(reminderTime.getHours() - 1); // Lembrete 1 hora antes
+
+  schedule.scheduleJob(reminderTime, () => {
+    sendReminder(user.email, 'Lembrete de Consulta', `Você tem uma consulta marcada para as ${appointmentTime}.`);
+  });
+};
+
+module.exports = scheduleNotifications;

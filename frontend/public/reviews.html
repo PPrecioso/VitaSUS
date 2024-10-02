@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliações - VitaSUS</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>VitaSUS</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="appointments.html">Agendar Consulta</a></li>
+                <li><a href="history.html">Histórico</a></li>
+                <li><a href="reviews.html">Avaliações</a></li>
+                <li><a href="profile.html">Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Avaliações de Médicos</h2>
+        <form id="reviewForm">
+            <!-- Seleção de Médico -->
+            <label for="doctor">Médico:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="" disabled selected>Selecione um médico</option>
+                <option value="Dr. João Silva">Dr. João Silva</option>
+                <option value="Dra. Maria Oliveira">Dra. Maria Oliveira</option>
+                <option value="Dr. Carlos Souza">Dr. Carlos Souza</option>
+                <option value="Dra. Ana Gomes">Dra. Ana Gomes</option>
+                <option value="Dr. Pedro Almeida">Dr. Pedro Almeida</option>
+                <option value="Dra. Letícia Lima">Dra. Letícia Lima</option>
+                <option value="Dra. Laura Ferreira">Dra. Laura Ferreira</option>
+                <option value="Dra. Paula Santos">Dra. Paula Santos</option>
+                <option value="Dr. Bruno Costa">Dr. Bruno Costa</option>
+                <option value="Dra. Isabel Rodrigues">Dra. Isabel Rodrigues</option>
+            </select>
+
+            <!-- Campo de avaliação -->
+            <label for="rating">Avaliação:</label>
+            <select id="rating" name="rating" required>
+                <option value="" disabled selected>Selecione uma nota</option>
+                <option value="1">1 - Ruim</option>
+                <option value="2">2 - Regular</option>
+                <option value="3">3 - Bom</option>
+                <option value="4">4 - Muito Bom</option>
+                <option value="5">5 - Excelente</option>
+            </select>
+
+            <label for="comment">Comentário:</label>
+            <textarea id="comment" name="comment" rows="4" placeholder="Escreva sua avaliação aqui..." required></textarea>
+
+            <!-- Botão de submissão -->
+            <input type="submit" value="Enviar Avaliação">
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 VitaSUS. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const doctor = document.getElementById('doctor').value;
+            const rating = document.getElementById('rating').value;
+            const comment = document.getElementById('comment').value;
+
+            if (doctor && rating && comment) {
+                // Enviar os dados da avaliação para o servidor via API
+                console.log({
+                    doctor: doctor,
+                    rating: rating,
+                    comment: comment
+                });
+
+                alert('Avaliação enviada com sucesso!');
+                // Limpar o formulário após o envio
+                this.reset();
+            } else {
+                alert('Por favor, preencha todos os campos corretamente.');
+            }
+        });
+    </script>
+</body>
+</html>
